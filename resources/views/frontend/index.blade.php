@@ -255,146 +255,50 @@
                 <h1 class="title"><span>Hot</span> Hotels</h1>
                 <span class="section-title-des">Lorem Ipsum Dolor Sit Amet, Consectetur Adipisicing Elitdunt</span>
             </div>
-
+            @foreach($hotels->chunk(4) as $chunked_hotel)
             <div class="row">
 
                 <!-- hotel item ( 1 ) -->
+                @foreach($chunked_hotel as $hotel)
+
                 <div class="col-sm-6 col-lg-3 sm-mb-30px">
                     <div class="hotel-grid background-white border border-grey-1 with-hover">
                         <div class="hotel-img position-relative">
                             <div class="hover-option background-main-color opacity-6">
                                 <div class="h3 text-center text-white padding-top-n-25 "><i class="fa fa-building-o opacity-10"></i></div>
                             </div>
-                            <img src="http://placehold.it/400x300" alt="">
+                            <img src="{{$hotel->photos->first()->link ?? 'http://placehold.it/400x300'}}" alt="">
                         </div>
                         <div class="rating">
                             <ul>
-                                <li class="active"  style="background-image: url({{URL::asset('images/star_1.png')}})"></li>
-                                <li class="active" style="background-image: url({{URL::asset('images/star_1.png')}})"></li>
-                                <li class="active" style="background-image: url({{URL::asset('images/star_1.png')}})" ></li>
+                                <li class="active"  style="background-image: url({{URL::asset('dist/img/star_1.png')}})"></li>
+                                <li class="active" style="background-image: url({{URL::asset('dist/img/star_1.png')}})"></li>
+                                <li class="active" style="background-image: url({{URL::asset('dist/img/star_1.png')}})" ></li>
                                 <li></li>
                                 <li></li>
                             </ul>
                         </div>
                         <div class="padding-20px">
-                            <h3 class="text-uppercase text-medium"><a href="#" class="text-dark">Adel New Hotel</a></h3>
+                            <h3 class="text-uppercase text-medium"><a href="#" class="text-dark">{{$hotel->title}}</a></h3>
                             <small class="text-uppercase text-extra-small">
                                 <a href="#" class="text-grey-4"><i class="fa fa-map-marker margin-right-5px"></i>
-                                    <span class="text-third-color margin-right-5px">United Kingdom</span> London</a>
+                                    <span class="text-third-color margin-right-5px">United Kingdom</span> {{$hotel->city->name}}</a>
                             </small>
-                            <i class="d-block padding-tb-8px text-grey-2 ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. the industry's standard dummy text ever since the 1500s</i>
+                            <i class="d-block padding-tb-8px text-grey-2 ">{{str_limit($hotel->description,100)}}</i>
                             <div class="margin-bottom-8px text-uppercase text-extra-small">
                                 <strong class="text-medium text-third-color padding-right-5px font-weight-bold">$500</strong>Person
                             </div>
-                            <a href="#" class="btn-sm btn-lg btn-block background-main-color text-white text-center font-weight-bold text-uppercase ">Booking Now </a>
+                            <a href="{{route('hotels')}}" class="btn-sm btn-lg btn-block background-main-color text-white text-center font-weight-bold text-uppercase ">Booking Now </a>
                         </div>
                     </div>
                 </div>
 
 
-                <!-- hotel item ( 2 ) -->
-                <div class="col-sm-6 col-lg-3 sm-mb-30px">
-                    <div class="hotel-grid background-white border border-grey-1 with-hover">
-                        <div class="hotel-img position-relative">
-                            <div class="hover-option background-main-color opacity-6">
-                                <div class="h3 text-center text-white padding-top-n-25 "><i class="fa fa-building-o opacity-10"></i></div>
-                            </div>
-                            <img src="http://placehold.it/400x300" alt="">
-                        </div>
-                        <div class="rating">
-                            <ul>
-                                <li class="active" style="background-image: url({{URL::asset('images/star_1.png')}})" ></li>
-                                <li class="active" style="background-image: url({{URL::asset('images/star_1.png')}})" ></li>
-                                <li class="active"></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                        </div>
-                        <div class="padding-20px">
-                            <h3 class="text-uppercase text-medium"><a href="#" class="text-dark">Anwar City Hotel</a></h3>
-                            <small class="text-uppercase text-extra-small">
-                                <a href="#" class="text-grey-4"><i class="fa fa-map-marker margin-right-5px"></i>
-                                    <span class="text-third-color margin-right-5px">United Kingdom</span> London</a>
-                            </small>
-                            <i class="d-block padding-tb-8px text-grey-2 ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. the industry's standard dummy text ever since the 1500s</i>
-                            <div class="margin-bottom-8px text-uppercase text-extra-small">
-                                <strong class="text-medium text-third-color padding-right-5px font-weight-bold">$500</strong>Person
-                            </div>
-                            <a href="#" class="btn-sm btn-lg btn-block background-main-color text-white text-center font-weight-bold text-uppercase">Booking Now </a>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- hotel item ( 3 ) -->
-                <div class="col-sm-6 col-lg-3 sm-mb-30px">
-                    <div class="hotel-grid background-white border border-grey-1 with-hover">
-                        <div class="hotel-img position-relative">
-                            <div class="hover-option background-main-color opacity-6">
-                                <div class="h3 text-center text-white padding-top-n-25 "><i class="fa fa-building-o opacity-10"></i></div>
-                            </div>
-                            <img src="http://placehold.it/400x300" alt="">
-                        </div>
-                        <div class="rating">
-                            <ul>
-                                <li class="active" style="background-image: url({{URL::asset('images/star_1.png')}})" ></li>
-                                <li class="active" style="background-image: url({{URL::asset('images/star_1.png')}})" ></li>
-                                <li class="active" style="background-image: url({{URL::asset('images/star_1.png')}})" ></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                        </div>
-                        <div class="padding-20px">
-                            <h3 class="text-uppercase text-medium"><a href="#" class="text-dark">Gadi Elsir Hotel</a></h3>
-                            <small class="text-uppercase text-extra-small">
-                                <a href="#" class="text-grey-4"><i class="fa fa-map-marker margin-right-5px"></i>
-                                    <span class="text-third-color margin-right-5px">United Kingdom</span> London</a>
-                            </small>
-                            <i class="d-block padding-tb-8px text-grey-2 ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. the industry's standard dummy text ever since the 1500s</i>
-                            <div class="margin-bottom-8px text-uppercase text-extra-small">
-                                <strong class="text-medium text-third-color padding-right-5px font-weight-bold">$500</strong>Person
-                            </div>
-                            <a href="#" class="btn-sm btn-lg btn-block background-main-color text-white text-center font-weight-bold text-uppercase">Booking Now </a>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- hotel item ( 4 ) -->
-                <div class="col-sm-6 col-lg-3 sm-mb-30px">
-                    <div class="hotel-grid background-white border border-grey-1 with-hover">
-                        <div class="hotel-img position-relative">
-                            <div class="hover-option background-main-color opacity-6">
-                                <div class="h3 text-center text-white padding-top-n-25 "><i class="fa fa-building-o opacity-10"></i></div>
-                            </div>
-                            <img src="http://placehold.it/400x300" alt="">
-                        </div>
-                        <div class="rating">
-                            <ul>
-                                <li class="active" style="background-image: url({{URL::asset('images/star_1.png')}})"></li>
-                                <li class="active" style="background-image: url({{URL::asset('images/star_1.png')}})"></li>
-                                <li class="active"></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                        </div>
-                        <div class="padding-20px">
-                            <h3 class="text-uppercase text-medium"><a href="#" class="text-dark">Knoon Hotel</a></h3>
-                            <small class="text-uppercase text-extra-small">
-                                <a href="#" class="text-grey-4"><i class="fa fa-map-marker margin-right-5px"></i>
-                                    <span class="text-third-color margin-right-5px">United Kingdom</span> London</a>
-                            </small>
-                            <i class="d-block padding-tb-8px text-grey-2 ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. the industry's standard dummy text ever since the 1500s</i>
-                            <div class="margin-bottom-8px text-uppercase text-extra-small">
-                                <strong class="text-medium text-third-color padding-right-5px font-weight-bold">$500</strong>Person
-                            </div>
-                            <a href="#" class="btn-sm btn-lg btn-block background-main-color text-white text-center font-weight-bold text-uppercase">Booking Now </a>
-                        </div>
-                    </div>
-                </div>
-
+                 @endforeach
 
             </div>
+
+           @endforeach
 
         </div>
     </section>

@@ -11,16 +11,26 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
+});*/
+
+Route::get('/','FrontendController@home');
+
+
+/*Route::get('/hotels', function (){
+
+    return view('frontend.hotels');
+});*/
+
+
+
+Route::get('/hotels', 'FrontendController@show')->name('hotels');
+
+Route::get('/clear-cache', function() {
+    Artisan::call('cache:clear');
+    return "Cache is cleared";
 });
-
-
-/*Route::get('/index', 'FrontendController@index');*/
-
-//Route::get('/hotels', 'FrontendContoller@show);
-
-
 
 
 
@@ -49,15 +59,32 @@ Route::get('/mainadmin', function (){
     return view('admin/index');
 });
 
+Route::get('/myfavorites', function (){
 
-//Route::get('/hotels', 'FrontendController@show ');
+    return view('frontend/user/myfavorites');
+});
 
-/*Route::get('/hotels', function (){
+Route::get('/myitems', function (){
 
-    return view('frontend/hotels');
-});*/
+    return view('frontend/user/myitems');
+});
 
 
-Route::get('/hotels','FrontendController@show' );
+Route::get('/myprofile', function (){
+
+    return view('frontend/user/myprofile');
+});
+
+
+
+
+
+
+
+
+
+Route::get('/cache', function () {
+    return Cache::get('key');
+});
 
 

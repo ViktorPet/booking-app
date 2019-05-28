@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Laravel\Dusk\DuskServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+
+        $this->app->bind(\App\Booking\Interfaces\FrontendRepositoryInterface::class,function()
+        {
+            return new \App\Booking\Repositories\FrontendRepository;
+        });
+
+
+            $this->app->register(DuskServiceProvider::class);
+
     }
 }

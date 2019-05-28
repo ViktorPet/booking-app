@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use Notifiable;
+    use Booking\Presenters\UserPresenter;
 
     /**
      * The attributes that are mass assignable.

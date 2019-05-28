@@ -48,7 +48,8 @@
     <script src="{{asset('dist/js/jquery-3.2.1.min.js')}}"></script>
     <script src="{{asset('dist/js/loading.js')}}"></script>
     <script src="{{asset('dist/js/sticky-sidebar.js')}}"></script>
-    <script src="{{asset('dist/js/jquery.gomap-1.3.3.min.js')}}"></script>
+    {{--<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=#API_KEY#"></script>
+    <script src="{{asset('dist/js/jquery.gomap-1.3.3.min.js')}}"></script>--}}
 
 
    {{-- <script type="text/javascript" src="js/jquery.gomap-1.3.3.min.js"></script>--}}

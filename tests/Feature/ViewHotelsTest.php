@@ -19,54 +19,41 @@ class ViewHotelsTest extends TestCase
      *
      * @test
      */
+    use WithFaker, RefreshDatabase ;
 
-    use RefreshDatabase;
 
-    public function view_hotels_list()
+
+
+    public function user_can_view_hotels_list()
     {
 
-      //  $hotel = factory(Hotel::class, 10)->create();
-
-        //dd($hotel);
-
-     //   $city = factory(City::class, 10)->make();
+        $this->withoutExceptionHandling();
 
 
-      // $hotel->load('city');
-
-
-
-       // dd($city);
-
-      // $photo = factory(Photo::class)->create();
-
-     //   $response = $this->get('/hotels');
-
-      //  $response->assertStatus(200);
-
-      // $response =  $this->get('/hotels');
-
-        // Stages of the test
 
         // 1. Arrange
         // Create Hotel
 
-        $hotels = factory(Hotel::class, 10)->create(/*[
+        $hotel = factory(Hotel::class)->create();
 
-            'name' => 'Washington',
-            'description' => 'Blalalalalalalalalallalallalal',
-            'city_id' => 2
-        ]*/);
-
-       // dd($hotels);
 
         // 2. Act
         // View hotel listing
+        /*dd($hotel);*/
+
+        $response = $this->get('/');
+
+        // 3) Assert
+
+        $response->assertStatus(200);
+        $response->assertSee($hotel->title);
+        $response->assertSee($hotel->description);
+        $response->assertSee($hotel->city->name);
+        $response->assertSee($hotel->city->name);
+
+      //  $response->assertSee($hotel->photos->link);
 
 
-        $response = $this->get('/hotels');
-
-        $response->assertViewIs('frontend.hotels');
 
 
 

@@ -25,7 +25,7 @@ class HotelsTableSeeder extends Seeder
 
             DB::table('hotels')->insert([
 
-                'name' => $faker->unique()->word,
+                'title' => $faker->unique()->word,
                 'description' => $faker->text(1000),
                 'city_id' => $faker->numberBetween(1,10),
                 'user_id' => $faker->numberBetween(1,10),

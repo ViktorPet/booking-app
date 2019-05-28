@@ -131,24 +131,23 @@
                 <!-- Content -->
                 <div class="col-lg-9">
                     <!-- hotel post -->
-
-                    @foreach($hotels as $hotel)
+                    @forelse($hotels as $hotel)
                     <div class="background-white border-bottom-1 border-grey-1 with-hover box-shadow-hover margin-bottom-40px">
                         <div class="row no-gutters">
                             <div class="col-lg-4">
                                 <div class="hotel-img position-relative">
-                                    <img src="http://placehold.it/400x300" alt="">
+                                    <img src="{{$hotel->photos->first()->link ?? 'http://placehold.it/400x300'}}" alt="Hello">
                                     <div class="hover-option background-main-color opacity-6">
-                                        <h3 class="text-center text-white padding-top-n-25 "><i class="fa fa-building-o opacity-10"></i></h3>
+                                        <h3 class="text-center text-white padding-top-n-25 "><i class="fa fa-building-o opacity-10"></i>{{$hotel->title}}</h3>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-8">
                                 <div class="padding-30px">
-                                    <h3 class="text-uppercase text-medium font-weight-600"><a href="#" class="text-dark">{{$hotel->name}}</a></h3>
+                                    <h3 class="text-uppercase text-medium font-weight-600"><a href="#" class="text-dark"></a></h3>
                                     <small class="text-uppercase text-extra-small">
                                         <a href="#" class="text-grey-4"><i class="fa fa-map-marker margin-right-5px"></i>
-                                            <span class="text-third-color margin-right-5px">United Kingdom</span> London</a>
+                                            <span class="text-third-color margin-right-5px">United Kingdom</span> {{$hotel->city->name}}</a>
                                     </small>
                                     <div class="claerfix"></div>
                                     <a href="#" class="float-lg-right btn-sm btn-lg background-second-color text-white text-center font-weight-bold text-uppercase margin-top-0px">Booking Now </a>
@@ -161,7 +160,11 @@
                             </div>
                         </div>
                     </div>
-                    @endforeach
+                        @empty
+
+                          <h2>No hotels yet</h2>
+
+                    @endforelse
                     <!-- // hotel post -->
 
 
