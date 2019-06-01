@@ -136,7 +136,7 @@
                         <div class="row no-gutters">
                             <div class="col-lg-4">
                                 <div class="hotel-img position-relative">
-                                    <img src="{{$hotel->photos->first()->link ?? 'http://placehold.it/400x300'}}" alt="Hello">
+                                    <img src="{{$hotel->photos->first()->path ?? 'http://placehold.it/400x300'}}" alt="Hello">
                                     <div class="hover-option background-main-color opacity-6">
                                         <h3 class="text-center text-white padding-top-n-25 "><i class="fa fa-building-o opacity-10"></i>{{$hotel->title}}</h3>
                                     </div>
@@ -150,9 +150,9 @@
                                             <span class="text-third-color margin-right-5px">United Kingdom</span> {{$hotel->city->name}}</a>
                                     </small>
                                     <div class="claerfix"></div>
-                                    <a href="#" class="float-lg-right btn-sm btn-lg background-second-color text-white text-center font-weight-bold text-uppercase margin-top-0px">Booking Now </a>
+                                    <a href="{{ route('hotel',['id'=>$hotel->id]) }}" class="float-lg-right btn-sm btn-lg background-second-color text-white text-center font-weight-bold text-uppercase margin-top-0px">View Details </a>
 
-                                    <i class="d-block padding-tb-8px text-grey-2 ">{{$hotel->description}} </i>
+                                    <i class="d-block padding-tb-8px text-grey-2 ">{{str_limit($hotel->description,100)}} </i>
                                     <div class="margin-bottom-8px text-uppercase text-extra-small">
                                         <strong class="text-medium text-third-color padding-right-5px font-weight-bold">$500</strong>Person
                                     </div>

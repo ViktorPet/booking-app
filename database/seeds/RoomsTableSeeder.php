@@ -15,14 +15,16 @@ class RoomsTableSeeder extends Seeder
         $faker = Faker\Factory::create();
 
         /* Lecture 11 */
-        for ($i = 1; $i <= 30; $i++) {
+        for ($i = 1; $i <= 100; $i++) {
 
             DB::table('rooms')->insert([
-                'room_number' => $faker->unique()->numberBetween(1, 30),
+
                 'room_size' => $faker->numberBetween(1, 5),
+                'type' => $faker->randomElement($array = array ('Single','Double','Apartment')),
                 'price' => $faker->numberBetween(100, 600),
-                'description' => $faker->text(1000),
-                'object_id' => $faker->numberBetween(1, 10),
+                'description' => $faker->text(200),
+                'hotel_id' => $faker->numberBetween(1, 10),
+
 
             ]);
         }

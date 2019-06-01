@@ -18,7 +18,7 @@ class LikeablesTableSeeder extends Seeder
         for ($i = 1; $i <= 40; $i++) {
 
             DB::table('likeables')->insert([
-                'likeable_type' => $faker->randomElement($array = array('App\TouristObject', 'App\Article')),
+                'likeable_type' => $faker->randomElement($array = array('App\Hotel', 'App\Article')),
                 'likeable_id' => $faker->numberBetween(1, 10),
                 'user_id' => $faker->numberBetween(1, 10),
             ]);

@@ -13,18 +13,45 @@
 
                     <div class="background-white border border-grey-1">
                         <ul class="slider-1 margin-0px padding-0px list-unstyled">
-                            <li><img src="http://placehold.it/800x480" alt=""></li>
-                            <li><img src="http://placehold.it/800x480" alt=""></li>
-                            <li><img src="http://placehold.it/800x480" alt=""></li>
-                            <li><img src="http://placehold.it/800x480" alt=""></li>
+                            <li><img src="{{$hotel->photos->first()->path ?? 'http://placehold.it/800x480'}}" alt=""></li>
+                            <li><img src="{{$hotel->photos->first()->path ?? 'http://placehold.it/800x480'}}" alt=""></li>
+                            <li><img src="{{$hotel->photos->first()->path ?? 'http://placehold.it/800x480'}}" alt=""></li>
+                            <li><img src="{{$hotel->photos->first()->path ?? 'http://placehold.it/800x480'}}" alt=""></li>
                         </ul>
                     </div>
                     <!-- // slider -->
 
+                    {{-- Room Select--}}
+
+                    <div class="card">
+                        <h5 class="card-header h5">Available Room Types</h5>
+                        <div class="card-body">
+                            <h5 class="card-title">Single Room</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="card">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Double Room</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="card">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Apartment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+
                     <div class="background-white border border-grey-1 padding-30px margin-tb-30px">
                         <h3 class="text-uppercase text-medium font-weight-700 border-bottom-1 border-second-color  padding-bottom-8px">Description</h3>
                         <div class="padding-top-10px">
-                            <p>Lorem ipsum dolor sit amet, mauris suspendisse viverra eleifend tortor tellus suscipit, tortor aliquet at nulla mus, dignissim neque, nulla neque. Ultrices proin mi urna nibh ut, aenean sollicitudin etiam libero nisl, ultrices ridiculus in magna purus consequuntur, ipsum donec orci ad vitae pede, id odio. Turpis venenatis at laoreet. Etiam commodo fusce in diam feugiat, nullam suscipit tortor per! Orci in, eleifend venenatis lacus tincidunt nisl malesuada tristique, cum egestas vel ac dapibus euismod suspendisse. Lorem ipsum dolor sit amet, mauris suspendisse viverra eleifend tortor tellus suscipit, tortor aliquet at nulla mus, dignissim neque, nulla neque. Ultrices proin mi urna nibh ut, aenean sollicitudin etiam libero nisl, ultrices ridiculus in magna purus consequuntur. </p>
+                            <p>{{str_limit($hotel->description,250)}} </p>
                         </div>
                     </div>
                     <!-- // Description -->
@@ -147,10 +174,10 @@
 
                     <!-- detailed -->
                     <div class="background-white border border-grey-1 padding-30px margin-bottom-30px">
-                        <h5 class="font-weight-700">ADEL NEW HOTEL</h5>
+                        <h5 class="font-weight-700">{{ $hotel->title }}</h5>
                         <small class="text-uppercase text-extra-small">
                             <a href="#" class="text-grey-4"><i class="fa fa-map-marker margin-right-5px"></i>
-                                <span class="text-third-color margin-right-5px">United Kingdom</span> London</a>
+                                <span class="text-third-color margin-right-5px">United Kingdom</span>{{ $hotel->city->name }}</a>
                         </small>
                         <div class="alert alert-success margin-tb-15px border-radius-0" role="alert">
                             Available for booking

@@ -29,9 +29,24 @@ class FrontendController extends Controller
 
     public function show(){
 
-        $hotels = $this->fR->getHotelsForMainPage();
-       // $hotels = Hotel::all();
+        $hotels = $this->fR->getHotelsForHotelsPage();
+
 
         return view('frontend.hotels',['hotels'=> $hotels]);
+    }
+
+    public function hotel($id){
+
+        $hotel = $this->fR->getHotel($id);
+
+
+        return view('frontend.hotel-details' ,compact('hotel'));
+
+    }
+
+    public function room($id)
+    {
+        $room = $this->fR->getRoom($id);
+        return view('frontend.room',['room'=>$room]);
     }
 }

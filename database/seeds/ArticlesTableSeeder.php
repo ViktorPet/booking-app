@@ -21,7 +21,7 @@ class ArticlesTableSeeder extends Seeder
                 'title' => $faker->text(20),
                 'content' => $faker->text(1000),
                 'created_at' => $faker->dateTime,
-                'object_id' => $faker->numberBetween(1, 10),
+                'hotel_id' => $faker->numberBetween(1, 10),
                 'user_id' => $faker->numberBetween(1, 10),
 
             ]);

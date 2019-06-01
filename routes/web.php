@@ -15,7 +15,7 @@
     return view('welcome');
 });*/
 
-Route::get('/','FrontendController@home');
+Route::get('/','FrontendController@home')->name('home');
 
 
 /*Route::get('/hotels', function (){
@@ -27,17 +27,13 @@ Route::get('/','FrontendController@home');
 
 Route::get('/hotels', 'FrontendController@show')->name('hotels');
 
-Route::get('/clear-cache', function() {
-    Artisan::call('cache:clear');
-    return "Cache is cleared";
-});
+
+Route::get('/hotel/{id}','FrontendController@hotel')->name('hotel');
+
+Route::get('/room/{id}','FrontendController@room')->name('room');
 
 
 
-Route::get('/hotel-details', function (){
-
-    return view('frontend/hotel-details');
-});
 
 Route::get('/hotel-reservation', function (){
 
