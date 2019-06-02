@@ -30,7 +30,12 @@ Route::get('/hotels', 'FrontendController@show')->name('hotels');
 
 Route::get('/hotel/{id}','FrontendController@hotel')->name('hotel');
 
-Route::get('/room/{id}','FrontendController@room')->name('room');
+Route::get('/room/{id}','FrontendController@room');
+
+/*Route::get('/room/{id}', function (){
+
+   return view('frontend.room');
+})->name('room');*/
 
 
 
@@ -77,10 +82,5 @@ Route::get('/myprofile', function (){
 
 
 
-
-
-Route::get('/cache', function () {
-    return Cache::get('key');
-});
 
 

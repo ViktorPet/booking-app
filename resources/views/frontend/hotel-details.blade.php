@@ -13,7 +13,7 @@
 
                     <div class="background-white border border-grey-1">
                         <ul class="slider-1 margin-0px padding-0px list-unstyled">
-                            <li><img src="{{$hotel->photos->first()->path ?? 'http://placehold.it/800x480'}}" alt=""></li>
+                            <li><img src="{{$hotel->photos->first()->path ?? $placeholder}}" alt=""></li>
                             <li><img src="{{$hotel->photos->first()->path ?? 'http://placehold.it/800x480'}}" alt=""></li>
                             <li><img src="{{$hotel->photos->first()->path ?? 'http://placehold.it/800x480'}}" alt=""></li>
                             <li><img src="{{$hotel->photos->first()->path ?? 'http://placehold.it/800x480'}}" alt=""></li>
@@ -23,30 +23,6 @@
 
                     {{-- Room Select--}}
 
-                    <div class="card">
-                        <h5 class="card-header h5">Available Room Types</h5>
-                        <div class="card-body">
-                            <h5 class="card-title">Single Room</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-primary">Book Now</a>
-                        </div>
-                    </div>
-                    <div class="card">
-
-                        <div class="card-body">
-                            <h5 class="card-title">Double Room</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-primary">Book Now</a>
-                        </div>
-                    </div>
-                    <div class="card">
-
-                        <div class="card-body">
-                            <h5 class="card-title">Apartment</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-primary">Book Now</a>
-                        </div>
-                    </div>
 
                     <div class="background-white border border-grey-1 padding-30px margin-tb-30px">
                         <h3 class="text-uppercase text-medium font-weight-700 border-bottom-1 border-second-color  padding-bottom-8px">Description</h3>
@@ -55,6 +31,36 @@
                         </div>
                     </div>
                     <!-- // Description -->
+
+                    <div class="card">
+                        <h5 class="card-header h5">Available Room Types</h5>
+                        <div class="card-body">
+                            <h5 class="card-title">{{$single->type ?? null}}</h5>
+                            <img src="{{$single->photos->first()->path ?? $placeholder}}" alt="" width="80px" height="60px">
+                            <p class="card-text">{{$single->description ?? null}}</p>
+                            <a href="{{route('room',['id'=> $single->id])}}" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="card">
+
+                        <div class="card-body">
+                            <h5 class="card-title">{{$double->type ?? null}}</h5>
+                            <img src="{{$double->photos->first()->path ?? $placeholder}}" alt="" width="80px" height="60px">
+                            <p class="card-text">{{$double->description ?? null}}</p>
+                            <a href="{{route('room',['id'=> $double->id])}}" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="card">
+
+                        <div class="card-body">
+                            <h5 class="card-title">{{$apartment->type ?? null}}</h5>
+                            <img src="{{$apartment->photos->first()->path ?? $placeholder}}" alt="" width="80px" height="60px">
+                            <p class="card-text">{{$apartment->description ?? null}}</p>
+                            <a href="{{route('room',['id'=> $apartment->id])}}" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+
+                    {{-- Room Types --}}
 
                     <div class="background-white border border-grey-1 padding-30px margin-tb-30px">
                         <h3 class="text-uppercase text-medium font-weight-700 border-bottom-1 border-second-color padding-bottom-8px">

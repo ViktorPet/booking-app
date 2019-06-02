@@ -12,77 +12,54 @@
                 <div class="col-lg-8 sticky-content">
 
                     <div class="background-white border border-grey-1">
+
                         <ul class="slider-1 margin-0px padding-0px list-unstyled">
+
+                           <li><img src=" " alt=""></li>
+                            {{--<li><img src="{{$room->photos->first()->path ?? 'http://placehold.it/800x480'}}" alt=""></li>
                             <li><img src="{{$room->photos->first()->path ?? 'http://placehold.it/800x480'}}" alt=""></li>
-                            <li><img src="{{$room->photos->first()->path ?? 'http://placehold.it/800x480'}}" alt=""></li>
-                            <li><img src="{{$room->photos->first()->path ?? 'http://placehold.it/800x480'}}" alt=""></li>
-                            <li><img src="{{$room->photos->first()->path ?? 'http://placehold.it/800x480'}}" alt=""></li>
+                            <li><img src="{{$room->photos->first()->path ?? 'http://placehold.it/800x480'}}" alt=""></li>--}}
+
                         </ul>
+
+
                     </div>
                     <!-- // slider -->
 
                     {{-- Room Select--}}
 
-                    <div class="card">
+                  {{--  <div class="card">
                         <h5 class="card-header h5">Available Room Types</h5>
                         <div class="card-body">
+                            <h5 class="card-title">Single Room</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="card">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Double Room</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div--}}>
+                    <div class="card">
+
+                        <div class="card-body">
                             <h5 class="card-title">{{$room->type}}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Price per night: {{$room->price}}</h6>
-                            <p class="card-text">Description: {{$room->description}}</p>
+                            <img src="{{$room->photos->first()->path ?? $placeholder}}" alt="">
+                            <p class="card-text">{{$room->description}}</p>
                             <a href="#" class="btn btn-primary">Book Now</a>
                         </div>
                     </div>
 
 
+
+
                     <!-- // Description -->
 
-                    <div class="background-white border border-grey-1 padding-30px margin-tb-30px">
-                        <h3 class="text-uppercase text-medium font-weight-700 border-bottom-1 border-second-color padding-bottom-8px">
-                            Map Location</h3>
-                        <div class="padding-top-10px">
-                            <div class="map-distributors-in" style="height:300px">
-                                <div id="map-distributors">
 
-                                    <script type="text/javascript">
-                                        $(function() {
-                                            $("#map-distributors").goMap({
-                                                zoom: 6,
-                                                maptype: 'ROADMAP',
-                                                markers: [
-
-                                                    {
-                                                        address: '39.605247,-104.615413',
-                                                        icon: 'images/icon_marker_1.png'
-                                                    },
-
-                                                ],
-                                                hideByClick: true
-                                            });
-                                            $("#default").click(function() {
-                                                $("#dump").html($.dump($.goMap.getMarkers()));
-                                            });
-                                            $("#clearall").click(function() {
-                                                $.goMap.clearMarkers();
-                                            });
-                                            $("#json").click(function() {
-                                                $("#dump").html($.goMap.getMarkers("json"));
-                                            });
-                                            $("#data").click(function() {
-                                                $("#dump").html($.goMap.getMarkers("data"));
-                                            });
-
-                                            $('.gm-style-iw').parent().css('width', 'auto');
-
-
-                                        });
-
-                                    </script>
-
-                                </div>
-                            </div>
-                            <!-- // map distributors -->
-                        </div>
-                    </div>
                     <!-- // Map Location -->
 
                     <div class="background-white border border-grey-1 padding-30px margin-tb-30px">

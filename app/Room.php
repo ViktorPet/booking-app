@@ -10,4 +10,9 @@ class Room extends Model
     {
         return $this->morphMany('App\Photo', 'photoable');
     }
+
+    public function hotel()
+    {
+        return $this->belongsTo('App\Hotel','hotel_id');
+    }
 }

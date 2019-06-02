@@ -19,7 +19,9 @@ class FrontendRepository implements FrontendRepositoryInterface  {
 
 
     public function getHotelsForMainPage()
+
     {
+        //return Hotel::with(['city','photos'])->get();
         return Hotel::with(['city','photos'])->where('hot', 1)->get();
     }
 
@@ -33,12 +35,10 @@ class FrontendRepository implements FrontendRepositoryInterface  {
         return Hotel::find($id);
     }
 
-    public function getRoom($id)
-    {
-        // with - for mobile json
-        return Room::find($id) ;
 
-    }
+
+
+
 
 
 

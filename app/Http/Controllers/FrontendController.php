@@ -6,7 +6,9 @@ use App\Hotel;
 use Illuminate\Http\Request;
 use App\Photo;
 use App\City;
+use App\Room;
 use App\Booking\Interfaces\FrontendRepositoryInterface;
+use Illuminate\Support\Facades\DB;
 
 
 class FrontendController extends Controller
@@ -39,14 +41,39 @@ class FrontendController extends Controller
 
         $hotel = $this->fR->getHotel($id);
 
+        $single = Hotel::find($id)->rooms()->where('type','Single')->first();
 
-        return view('frontend.hotel-details' ,compact('hotel'));
+        $double = Hotel::find($id)->rooms()->where('type','Double')->first();
+
+        $apartment= Hotel::find($id)->rooms()->where('type','Apartment')->first();
+
+
+       // dd($single);
+
+        return view('frontend.hotel-details' ,
+            [
+                'hotel'=> $hotel,
+                'single' => $single,
+                'double' => $double,
+                'apartment' => $apartment
+        ]);
 
     }
 
     public function room($id)
+
     {
-        $room = $this->fR->getRoom($id);
-        return view('frontend.room',['room'=>$room]);
+
+
+
+        $room = Room::findOrFail($id);
+
+        // dd($room);
+
+
+
+       // $room = $this->fR->getRoomsForRoomsPage();
+        //dd($room);
+        return view('frontend.room', compact('room'));
     }
 }

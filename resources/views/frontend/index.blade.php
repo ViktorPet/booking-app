@@ -267,7 +267,7 @@
                             <div class="hover-option background-main-color opacity-6">
                                 <div class="h3 text-center text-white padding-top-n-25 "><i class="fa fa-building-o opacity-10"></i></div>
                             </div>
-                            <img src="{{$hotel->photos->first()->link ?? 'http://placehold.it/400x300'}}" alt="">
+                            <img src="{{$hotel->photos->first()->path ?? 'http://placehold.it/400x300'}}" alt="">
                         </div>
                         <div class="rating">
                             <ul>
