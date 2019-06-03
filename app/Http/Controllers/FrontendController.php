@@ -77,5 +77,7 @@ class FrontendController extends Controller
        // $room = $this->fR->getRoomsForRoomsPage();
         //dd($room);
         return view('frontend.room', compact('room'));
+
+        // Changes today lunch Chernomorec , Bulgaria
     }
 }
