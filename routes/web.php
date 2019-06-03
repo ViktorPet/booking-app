@@ -30,7 +30,7 @@ Route::get('/hotels', 'FrontendController@show')->name('hotels');
 
 Route::get('/hotel/{id}','FrontendController@hotel')->name('hotel');
 
-Route::get('/room/{id}','FrontendController@room');
+Route::get('/room/{id}','FrontendController@room')->name('room');
 
 /*Route::get('/room/{id}', function (){
 

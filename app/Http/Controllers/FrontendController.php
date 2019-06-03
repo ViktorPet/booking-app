@@ -66,7 +66,9 @@ class FrontendController extends Controller
 
 
 
-        $room = Room::findOrFail($id);
+       // $room = DB::table('rooms')->find($id);
+
+        $room = Room::find($id);
 
         // dd($room);
 
